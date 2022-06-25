@@ -9,7 +9,15 @@ func (c *Commander) List(inputMessage *tgbotapi.Message) {
 	}
 
 	msg := tgbotapi.NewMessage(inputMessage.Chat.ID, outputMessage)
+
+	msg.ReplyMarkup = tgbotapi.NewInlineKeyboardMarkup(
+		tgbotapi.NewInlineKeyboardRow(
+			tgbotapi.NewInlineKeyboardButtonURL("1.com", "http://1.com"),
+		),
+	)
+
 	c.bot.Send(msg)
+
 }
 
 func init() {
